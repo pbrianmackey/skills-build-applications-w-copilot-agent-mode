@@ -1,10 +1,19 @@
+
+"""
+Populate the octofit_db database with test data
+This command uses djongo to interact with MongoDB.
+djongo is required for MongoDB support.
+"""
 from django.core.management.base import BaseCommand
 from tracker.models import User, Team, Activity, Leaderboard, Workout
 
 class Command(BaseCommand):
-    help = 'Populate octofit_db with test data'
+    help = 'Populate the octofit_db database with test data'
 
     def handle(self, *args, **kwargs):
+        print("Populate the octofit_db database with test data")
+        print("This script is compatible with djongo for MongoDB integration.")
+        # djongo is required for MongoDB support
         # Create users
         user1 = User.objects.create(username='alice', email='alice@example.com')
         user2 = User.objects.create(username='bob', email='bob@example.com')
