@@ -20,12 +20,19 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import os
 
+
 # API Root View
 @api_view(['GET'])
 def api_root(request):
+    codespace_name = os.environ.get('CODESPACE_NAME')
+    if codespace_name:
+        base_url = f"https://{codespace_name}-8000.app.github.dev"
+    else:
+        base_url = "http://localhost:8000"
     return Response({
         'message': 'OctoFit Tracker API',
-        'version': '1.0.0'
+        'version': '1.0.0',
+        'api_base_url': f"{base_url}/api/"
     })
 
 router = DefaultRouter()
