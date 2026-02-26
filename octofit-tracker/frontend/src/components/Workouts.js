@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 
 const Workouts = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -19,13 +18,30 @@ const Workouts = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Workouts</h2>
-      <ul>
-        {workouts.map((workout, idx) => (
-          <li key={workout.id || idx}>{workout.workout_type} - {workout.suggested ? 'Suggested' : 'Not Suggested'}</li>
-        ))}
-      </ul>
+    <div className="container">
+      <h2 className="my-4 display-6">Workouts</h2>
+      <div className="card shadow-sm mb-4">
+        <div className="card-body">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>#</th>
+                <th>Workout Type</th>
+                <th>Suggested</th>
+              </tr>
+            </thead>
+            <tbody>
+              {workouts.map((workout, idx) => (
+                <tr key={workout.id || idx}>
+                  <td>{idx + 1}</td>
+                  <td>{workout.workout_type}</td>
+                  <td>{workout.suggested ? 'Yes' : 'No'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

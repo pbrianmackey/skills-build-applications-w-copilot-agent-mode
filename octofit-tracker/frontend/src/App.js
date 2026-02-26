@@ -1,19 +1,18 @@
 
-import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Activities from './components/Activities';
-import Leaderboard from './components/Leaderboard';
-import Teams from './components/Teams';
-import Users from './components/Users';
-import Workouts from './components/Workouts';
 
 function App() {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">OctoFit Tracker</Link>
-          <div className="collapse navbar-collapse">
+            <Link className="navbar-brand fw-bold d-flex align-items-center" to="/">
+              <img src={logo} alt="OctoFit Logo" className="App-logo me-2" />
+              OctoFit Tracker
+            </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link" to="/activities">Activities</Link>
@@ -34,6 +33,7 @@ function App() {
           </div>
         </div>
       </nav>
+        import logo from './octofitapp-small.png';
       <div className="container">
         <Routes>
           <Route path="/activities" element={<Activities />} />
@@ -41,7 +41,7 @@ function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/users" element={<Users />} />
           <Route path="/workouts" element={<Workouts />} />
-          <Route path="/" element={<h2>Welcome to OctoFit Tracker!</h2>} />
+          <Route path="/" element={<div className="card p-4 shadow-sm"><h2 className="display-5 mb-3">Welcome to OctoFit Tracker!</h2><p className="lead">Track your fitness activities, teams, and progress with ease.</p></div>} />
         </Routes>
       </div>
     </Router>

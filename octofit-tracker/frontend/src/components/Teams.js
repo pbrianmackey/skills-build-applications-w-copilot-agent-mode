@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
@@ -19,13 +18,28 @@ const Teams = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Teams</h2>
-      <ul>
-        {teams.map((team, idx) => (
-          <li key={team.id || idx}>{team.name}</li>
-        ))}
-      </ul>
+    <div className="container">
+      <h2 className="my-4 display-6">Teams</h2>
+      <div className="card shadow-sm mb-4">
+        <div className="card-body">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {teams.map((team, idx) => (
+                <tr key={team.id || idx}>
+                  <td>{idx + 1}</td>
+                  <td>{team.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

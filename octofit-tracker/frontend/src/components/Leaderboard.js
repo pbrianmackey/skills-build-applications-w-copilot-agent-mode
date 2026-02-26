@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
@@ -19,13 +18,30 @@ const Leaderboard = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Leaderboard</h2>
-      <ul>
-        {leaderboard.map((entry, idx) => (
-          <li key={entry.id || idx}>{entry.team?.name || 'Team'}: {entry.points} pts</li>
-        ))}
-      </ul>
+    <div className="container">
+      <h2 className="my-4 display-6">Leaderboard</h2>
+      <div className="card shadow-sm mb-4">
+        <div className="card-body">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>#</th>
+                <th>Team</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {leaderboard.map((entry, idx) => (
+                <tr key={entry.id || idx}>
+                  <td>{idx + 1}</td>
+                  <td>{entry.team?.name || 'Team'}</td>
+                  <td>{entry.points}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 
 const Activities = () => {
   const [activities, setActivities] = useState([]);
@@ -19,13 +18,32 @@ const Activities = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map((activity, idx) => (
-          <li key={activity.id || idx}>{activity.activity_type} - {activity.duration} min</li>
-        ))}
-      </ul>
+    <div className="container">
+      <h2 className="my-4 display-6">Activities</h2>
+      <div className="card shadow-sm mb-4">
+        <div className="card-body">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Duration (min)</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activities.map((activity, idx) => (
+                <tr key={activity.id || idx}>
+                  <td>{idx + 1}</td>
+                  <td>{activity.activity_type}</td>
+                  <td>{activity.duration}</td>
+                  <td>{activity.date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

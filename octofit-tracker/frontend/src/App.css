@@ -1,11 +1,22 @@
-.App {
-  text-align: center;
+
+body {
+  background: linear-gradient(135deg, #f0f4f9 0%, #e0e7ef 100%);
+  color: #2a2a2a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  min-height: 100vh;
 }
+
+
+.App-logo {
+  height: 60px;
+  width: auto;
+  pointer-events: none;
+  margin-right: 16px;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,19 +24,85 @@
   }
 }
 
+
 .App-header {
-  background-color: #282c34;
+  background-color: #3a3f58;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+
+.App-link, .navbar-brand, .nav-link {
+  color: #1e88e5 !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.App-link:hover, .navbar-brand:hover, .nav-link:hover {
+  color: #1565c0 !important;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #1e88e5 0%, #42a5f5 100%) !important;
+  box-shadow: 0 2px 8px rgba(30,136,229,0.08);
+}
+.navbar-brand {
+  color: #fff !important;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.nav-link.active {
+  color: #fff !important;
+  background: #1976d2;
+  border-radius: 4px;
+}
+
+h2, .display-6, .display-5 {
+  color: #1976d2;
+  font-weight: 700;
+}
+
+.card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 2px 12px rgba(30,136,229,0.07);
+}
+
+.table {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table thead {
+  background: #e3f2fd;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f5faff;
+}
+.table-hover tbody tr:hover {
+  background-color: #e3f2fd;
+}
+
+.btn, .btn-primary {
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #1976d2 100%);
+}
+
+/* Favicon style (if needed) */
+link[rel="icon"] {
+  border-radius: 50%;
 }
 
 @keyframes App-logo-spin {
