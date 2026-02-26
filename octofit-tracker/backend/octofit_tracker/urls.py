@@ -38,6 +38,7 @@ else:
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', api_root, name='root'),
     path('api/', api_root, name='api-root'),
-    path('api/', include(router.urls)),
+    path('api/', include('tracker.urls')),
 ]
